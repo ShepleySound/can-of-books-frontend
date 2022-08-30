@@ -1,8 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import { Button, Form, Modal } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 
-class SearchBooks extends React.Component {
+class AddBook extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -61,4 +63,4 @@ class SearchBooks extends React.Component {
 
 }
 
-export default SearchBooks
+export default AddBook

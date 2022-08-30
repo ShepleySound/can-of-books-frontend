@@ -1,11 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
-import SearchBooks from './SearchBooks';
-import BookCarousel from './BookCarousel';
+import AddBook from '../components/AddBook';
+import BookCarousel from '../components/BookCarousel';
+import './Library.css'
 
 
-class BestBooks extends React.Component {
+class Library extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,14 +64,14 @@ class BestBooks extends React.Component {
           ) : (
             <h3>No Books Found :(</h3>
           )}
-        <Button variant="dark" onClick={this.handleShow}>
+        <Button variant="dark" onClick={this.handleShow} className="Library_searchButton">
           Search
         </Button>
-        <SearchBooks show={this.state.showModal} handleClose={this.handleClose}/>
+        <AddBook show={this.state.showModal} handleClose={this.handleClose}/>
         </main>
       </>
     )
   }
 }
 
-export default BestBooks;
+export default Library;

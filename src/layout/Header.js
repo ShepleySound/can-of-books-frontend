@@ -8,7 +8,7 @@ import './Header.css';
 class Header extends React.Component {
   render() {
     return (
-      <header>
+      <header className='Header'>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
             <Navbar.Brand>My Favorite Books</Navbar.Brand>
