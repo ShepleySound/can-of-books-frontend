@@ -64,7 +64,7 @@ class Library extends React.Component {
           ) : (
             <h3>No Books Found :(</h3>
           )}
-        <Button variant="dark" onClick={this.handleShow} className="Library_searchButton">
+        <Button variant="light" onClick={this.handleShow} className="mt-3 searchButton">
           Search
         </Button>
         <AddBook show={this.state.showModal} handleClose={this.handleClose}/>

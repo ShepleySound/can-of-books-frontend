@@ -1,5 +1,6 @@
 .Carousel {
-  border: 10px solid black;
+  overflow: hidden;
+  border-radius: 8px;
   width: 400px;
 }
 
