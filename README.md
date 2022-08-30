@@ -35,8 +35,9 @@ mv .env.sample .env
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
+-->
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+08-29-2022 - Application has a front-end with a functional navbar, implementing React Router and a connection to a custom back-end API.
 
 ## Estimates
 
@@ -44,10 +45,13 @@ mv .env.sample .env
 
 | Feature Name | Estimated Time | Start Time | Finish Time |
 | ------------ | -------------- | ---------- | ----------- |
-| Initial Setup | 2 Hours | 3:00PM | 5:00PM |
+| Initial Setup | 2 Hours | 3:00PM | 5:40PM |
+| Hook Front-End to Server | 1 Hour | 8:00PM | 9:00PM |
+| React Router | 1 Hour | 9:00PM | 9:30PM |
 
 ## Credit
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+[Template Repository](https://github.com/codefellows/can-of-books-frontend-template)
 
 ## Collaboration
 

@@ -1,0 +1,11 @@
+.Main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Carousel {
+  border: 10px solid black;
+  width: 400px;
+}
