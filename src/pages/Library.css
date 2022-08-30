@@ -1,7 +1,7 @@
 .Carousel {
   overflow: hidden;
   border-radius: 8px;
-  width: 400px;
+  width: 320px;
   position: relative;
 }
 
@@ -10,10 +10,17 @@
 
 }
 
+.carousel-control-next,
+.carousel-control-prev {
+  height: 25%;
+}
+
 .Carousel_deleteButton {
   position: absolute;
-  right: 172px;
-  top: 8px;
+  bottom: 8px;
+  right: 8px;
+  background-color: transparent !important;
+  border: none !important;
   width: 48px;
   height: 48px;
   display: flex;

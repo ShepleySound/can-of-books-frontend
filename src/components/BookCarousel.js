@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Image from 'react-bootstrap/Image'
 import Carousel from 'react-bootstrap/Carousel';
 
 class BookCarousel extends React.Component {
@@ -11,9 +12,9 @@ class BookCarousel extends React.Component {
           return (
             <Carousel.Item key={book._id}>
               <Button className='Carousel_deleteButton' variant="light" onClick={() => console.log(book)}>
-                <img className='Carousel_deleteButton_image' src='assets/icons8_trash.svg' alt='delete' width={18} height={18}></img>
+                <Image className='Carousel_deleteButton_image' src='assets/icons8_trash.svg' alt='delete' width={18} height={18}></Image>
               </Button>
-              <img src ='assets/cover-unavailable-image.png' alt='Random' width={400} height={600}/>
+              <Image fluid src ='assets/cover-unavailable-image.png' width={320} height={200}/>
               <Carousel.Caption className='Carousel_caption'>
                 <h3>{book.title}</h3>
                 <p>{book.description}</p>
