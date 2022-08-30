@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Carousel from 'react-bootstrap/Carousel';
-import { Button, Form } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 import SearchBooks from './SearchBooks';
 import BookCarousel from './BookCarousel';
 
