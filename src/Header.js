@@ -2,8 +2,9 @@ import React from 'react';
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import './Header.css';
+// import { NavLink } from 'react-bootstrap';
 
 class Header extends React.Component {
   render() {
@@ -11,8 +12,10 @@ class Header extends React.Component {
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand>My Favorite Books</Navbar.Brand>
-          <Nav.Link><Link to="/" className="nav-link">Home</Link></Nav.Link>
-          <Nav.Link><Link to="/About" className="nav-link">About</Link></Nav.Link>
+          <Nav>
+            <Nav.Link as={NavLink} to="/" className="nav-link">Home</Nav.Link>
+            <Nav.Link as={NavLink} to="/About" className="nav-link">About</Nav.Link>
+          </Nav>
         </Container>
       </Navbar>
     )
