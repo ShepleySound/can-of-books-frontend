@@ -2,6 +2,23 @@
   overflow: hidden;
   border-radius: 8px;
   width: 400px;
+  position: relative;
+}
+
+.carousel-caption {
+  background-color: #12121224;
+
+}
+
+.Carousel_deleteButton {
+  position: absolute;
+  right: 172px;
+  top: 8px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .searchButton {}
