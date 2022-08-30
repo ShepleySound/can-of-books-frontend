@@ -49,7 +49,7 @@ class AddBook extends React.Component {
               <Form.Control name="author" value={this.state.author} onChange={this.handleInputChange} placeholder="Enter author name..."></Form.Control>
             </Form.Group>
             <Button className="mt-3" variant="dark" type="submit" onClick={this.handleSubmit}>
-              Search
+              Add Book
             </Button>
           </Form>
 
