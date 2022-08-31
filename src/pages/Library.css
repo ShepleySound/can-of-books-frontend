@@ -1,0 +1,42 @@
+.Carousel {
+  overflow: hidden;
+  border-radius: 8px;
+  width: 320px;
+  position: relative;
+}
+
+.carousel-caption {
+  border-radius: 8px;
+  padding: 24px !important;
+  background-color: #121212cc;
+  color: white !important;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  height: 25%;
+}
+
+.Carousel_deleteButton {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background-color: transparent !important;
+  border: none !important;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Carousel_bookDescription {
+  max-height: 10em;
+  overflow-y: scroll;
+  scrollbar-width: 0;
+}
+
+.Carousel_bookDescription::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
