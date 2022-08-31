@@ -38,6 +38,7 @@ mv .env.sample .env
 -->
 
 08-29-2022 - Application has a front-end with a functional navbar, implementing React Router and a connection to a custom back-end API.
+08-30-2022 - Application can handle adding and removing books while remaining in sync with the back-end/database.
 
 ## Estimates
 
@@ -55,7 +56,7 @@ mv .env.sample .env
 | ------------ | -------------- | ---------- | ----------- |
 | Styling Work | 2 Hours | 1:30PM | 4:00PM |
 | Hook Book Addition to Back-End | 1 Hour | 4:30PM | 5:45PM |
-| Hook Book Deletion to Back-End | 1 Hour | 6:45PM |
+| Hook Book Deletion to Back-End | 1 Hour | 6:45PM | 7:45
 
 ## Credit
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
