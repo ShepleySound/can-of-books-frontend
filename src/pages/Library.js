@@ -11,11 +11,10 @@ class Library extends React.Component {
     super(props);
     this.state = {
       books: [],
-      title: '',
-      author: '',
       showModal: false,
     }
   }
+  
   getBooks = async() => {
     try {
       const bookData = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/books`);
@@ -31,30 +30,13 @@ class Library extends React.Component {
     this.getBooks();
   }
 
-  handleSubmit = async (e) => {
-    e.preventDefault()
-    console.log("Title:", this.state.title)
-    console.log("Author:", this.state.author)
-
-    const bookSearch = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.title}+inauthor:${this.state.author}&printType=books&projection=lite&maxResults=5`)
-    console.log(bookSearch.data)
-  }
-
-  handleInputChange = (e) => {
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value,
-    })
-  }
   handleShow = () => {
     this.setState({ showModal: true })
   }
   handleClose = () => {
     this.setState({ showModal: false })
   }
+  
   render() {
     return (
       <>
@@ -67,7 +49,15 @@ class Library extends React.Component {
         <Button variant="light" onClick={this.handleShow} className="mt-3 searchButton">
           Add Book
         </Button>
-        <AddBook show={this.state.showModal} handleClose={this.handleClose}/>
+        <AddBook 
+          show={this.state.showModal} 
+          handleClose={this.handleClose} 
+          getBooks={this.getBooks}
+          title={''}
+          author={''}
+          description={''}
+          hasRead={false}
+          _id={''}/>
         </main>
       </>
     )

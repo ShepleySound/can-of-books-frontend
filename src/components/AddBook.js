@@ -8,17 +8,40 @@ class AddBook extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      author: '',
-      description: '',
-
-
+      title: this.props.title,
+      author: this.props.author,
+      description: this.props.description,
+      hasRead: this.props.hasRead,
+      id: this.props.id,
     }
   }
 
+  clearFormData = () => {
+    this.setState({
+      title: '',
+      author: '',
+      description: '',
+      hasRead: '',
+      id: '',
+    })
+  }
+
   handleSubmit = async (e) => {
-    e.preventDefault()
-    const bookSearch = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.title}+inauthor:${this.state.author}&printType=books&projection=lite&maxResults=5`)
+    try {
+      e.preventDefault();
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/books`, 
+      {
+        'title': this.state.title,
+        'author': this.state.author,
+        'description': this.state.description,
+        'status': this.state.hasRead,
+      });
+      this.props.getBooks();
+      this.clearFormData();
+      this.props.handleClose();
+    } catch (error) {
+      console.log("Handle Submit", error)
+    }
   }
 
   handleInputChange = (e) => {
@@ -54,7 +77,7 @@ class AddBook extends React.Component {
             </Form.Group>
             <Form.Group className='mb-3' controlId="BookSearchForm.description">
               <Form.Label>Description</Form.Label>
-              <Form.Control as="textarea" rows={3} name="description" checked={false} onChange={this.handleInputChange} placeholder="Enter Description..."></Form.Control>
+              <Form.Control as="textarea" rows={3} name="description" checked={this.state.hasRead} onChange={this.handleInputChange} placeholder="Enter Description..."></Form.Control>
             </Form.Group>
             <Form.Group className='mb-3' controlId="BookSearchForm.hasRead">
               <Form.Check type="switch" id="read-switch" label="Have you read this book?" name="hasRead" value={this.state.hasRead} onChange={this.handleInputChange}/>
