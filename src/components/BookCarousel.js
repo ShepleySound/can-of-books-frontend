@@ -5,18 +5,36 @@ import Carousel from 'react-bootstrap/Carousel';
 import axios from 'axios';
 
 class BookCarousel extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      index: 0,
+    }
+  }
 
   handleDelete = async (bookId) => {
     try {
-      const deleteReturn = await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/books/${bookId}`)
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/books/${bookId}`)
       this.props.getBooks();
     } catch (error) {
-      console.log(error)
+      console.error('Error in handleDelete:', error)
     }
+
+    this.setState(state => {
+      if (state.index > 0) {
+        return {index: state.index - 1};
+      } else return {index: state.index}
+    })
+  }
+  
+  handleSelect = (selectedIndex, e) => {
+    this.setState({
+      index: selectedIndex
+    })
   }
   render() {
     return(
-      <Carousel variant="dark" className="Carousel">
+      <Carousel activeIndex={this.state.index} onSelect={this.handleSelect} variant="dark" className="Carousel">
         {this.props.books.map(book => {
           return (
             <Carousel.Item key={book._id}>
@@ -26,9 +44,8 @@ class BookCarousel extends React.Component {
               <Image fluid src ='assets/cover-unavailable-image.png' width={320} height={200}/>
               <Carousel.Caption className='Carousel_caption'>
                 <h3>{book.title}</h3>
-                <p>{book.description}</p>
-                <p>{book.status}</p>
-                <p>{book._id}</p>
+                <p className='Carousel_bookDescription'>{book.description}</p>
+                <p>{book.status ? 'You have read this book' : 'You have not read this book'}</p>
               </Carousel.Caption>
             </Carousel.Item>
           );

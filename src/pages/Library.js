@@ -22,7 +22,7 @@ class Library extends React.Component {
         books: bookData.data
       });
     } catch (error) {
-      console.log('Error in getBooks', error);
+      console.error('Error in getBooks', error);
     }
   };
 

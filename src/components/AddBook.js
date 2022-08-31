@@ -40,7 +40,7 @@ class AddBook extends React.Component {
       this.clearFormData();
       this.props.handleClose();
     } catch (error) {
-      console.log("Handle Submit", error)
+      console.error("Error in handleSubmit", error)
     }
   }
 

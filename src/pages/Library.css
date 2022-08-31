@@ -6,8 +6,10 @@
 }
 
 .carousel-caption {
-  background-color: #12121224;
-
+  border-radius: 8px;
+  padding: 24px !important;
+  background-color: #121212cc;
+  color: white !important;
 }
 
 .carousel-control-next,
@@ -28,4 +30,13 @@
   align-items: center;
 }
 
-.searchButton {}
+.Carousel_bookDescription {
+  max-height: 10em;
+  overflow-y: scroll;
+  scrollbar-width: 0;
+}
+
+.Carousel_bookDescription::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
