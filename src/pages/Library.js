@@ -6,7 +6,6 @@ import BookCarousel from '../components/BookCarousel';
 import BookGrid from '../components/BookGrid';
 import './Library.css';
 
-
 class Library extends React.Component {
   constructor(props) {
     super(props);
@@ -56,9 +55,11 @@ class Library extends React.Component {
       selectedBook: emptyBook,
      })
   }
+  
   handleClose = () => {
     this.setState({ showModal: false })
   }
+
   handleEdit = (book) => {
     this.setState({
       showModal: true,

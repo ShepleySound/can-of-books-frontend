@@ -35,7 +35,7 @@ class BookCarousel extends React.Component {
 
   render() {
     return(
-      <Carousel activeIndex={this.state.index} onSelect={this.handleSelect} variant="dark" className="Carousel">
+      <Carousel interval={null} activeIndex={this.state.index} onSelect={this.handleSelect} variant="dark" className="Carousel">
         {this.props.books.map(book => {
           return (
             <Carousel.Item key={book._id}>
