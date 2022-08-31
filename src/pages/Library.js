@@ -14,7 +14,7 @@ class Library extends React.Component {
       showModal: false,
     }
   }
-  
+
   getBooks = async() => {
     try {
       const bookData = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/books`);
@@ -42,7 +42,7 @@ class Library extends React.Component {
       <>
         <main className='Main'>
           {this.state.books.length ? (
-            <BookCarousel books={this.state.books}/>
+            <BookCarousel books={this.state.books} getBooks={this.getBooks}/>
           ) : (
             <h3>No Books Found :(</h3>
           )}

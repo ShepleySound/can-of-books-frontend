@@ -21,7 +21,7 @@ class AddBook extends React.Component {
       title: '',
       author: '',
       description: '',
-      hasRead: '',
+      hasRead: false,
       id: '',
     })
   }

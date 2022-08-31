@@ -49,6 +49,14 @@ mv .env.sample .env
 | Hook Front-End to Server | 1 Hour | 8:00PM | 9:00PM |
 | React Router | 1 Hour | 9:00PM | 9:30PM |
 
+### August 30, 2022
+
+| Feature Name | Estimated Time | Start Time | Finish Time |
+| ------------ | -------------- | ---------- | ----------- |
+| Styling Work | 2 Hours | 1:30PM | 4:00PM |
+| Hook Book Addition to Back-End | 1 Hour | 4:30PM | 5:45PM |
+| Hook Book Deletion to Back-End | 1 Hour | 6:45PM |
+
 ## Credit
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 [Template Repository](https://github.com/codefellows/can-of-books-frontend-template)
