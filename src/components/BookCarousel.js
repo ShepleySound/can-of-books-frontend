@@ -44,6 +44,7 @@ class BookCarousel extends React.Component {
               <Image fluid src ='assets/cover-unavailable-image.png' width={320} height={200}/>
               <Carousel.Caption className='Carousel_caption'>
                 <h3>{book.title}</h3>
+                <h4>{book.author}</h4>
                 <p className='Carousel_bookDescription'>{book.description}</p>
                 <p>{book.status ? 'You have read this book' : 'You have not read this book'}</p>
               </Carousel.Caption>

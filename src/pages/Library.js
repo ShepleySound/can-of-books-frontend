@@ -44,7 +44,7 @@ class Library extends React.Component {
           {this.state.books.length ? (
             <BookCarousel books={this.state.books} getBooks={this.getBooks}/>
           ) : (
-            <h3>No Books Found :(</h3>
+            <h3 className='text-white'>No Books Found :(</h3>
           )}
         <Button variant="light" onClick={this.handleShow} className="mt-3 searchButton">
           Add Book
