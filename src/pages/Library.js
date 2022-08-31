@@ -11,7 +11,15 @@ class Library extends React.Component {
     super(props);
     this.state = {
       books: [],
+      selectedBook: {
+        title: '',
+        author: '',
+        description: '',
+        status: false,
+        _id: '',
+      },
       showModal: false,
+      formModalMode: 'add'
     }
   }
 
@@ -31,18 +39,40 @@ class Library extends React.Component {
   }
 
   handleShow = () => {
-    this.setState({ showModal: true })
+    const emptyBook = {
+      title: '',
+      author: '',
+      description: '',
+      status: false,
+      _id: '',
+    }
+    this.setState({ 
+      showModal: true,
+      formModalMode: 'add',
+      selectedBook: emptyBook,
+     })
   }
   handleClose = () => {
     this.setState({ showModal: false })
+  }
+  handleEdit = (book) => {
+    this.setState({
+      showModal: true,
+      formModalMode: 'edit',
+      selectedBook: book,
+    })
+  }
+
+  initFormFill = () => {
+
   }
   
   render() {
     return (
       <>
         <main className='Main'>
-          {this.state.books.length ? (
-            <BookCarousel books={this.state.books} getBooks={this.getBooks}/>
+          {this.state.books.length ?  (
+            <BookCarousel books={this.state.books} getBooks={this.getBooks} handleEdit={this.handleEdit}/>
           ) : (
             <h3 className='text-white'>No Books Found :(</h3>
           )}
@@ -50,14 +80,11 @@ class Library extends React.Component {
           Add Book
         </Button>
         <AddBook 
-          show={this.state.showModal} 
+          show={this.state.showModal}
           handleClose={this.handleClose} 
           getBooks={this.getBooks}
-          title={''}
-          author={''}
-          description={''}
-          hasRead={false}
-          _id={''}/>
+          {...this.state.selectedBook}
+          formModalMode={this.state.formModalMode}/>
         </main>
       </>
     )
