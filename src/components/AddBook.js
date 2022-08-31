@@ -23,6 +23,7 @@ class AddBook extends React.Component {
       description: this.props.description,
       status: this.props.status,
       id: this.props._id,
+      v: this.props.__v,
     })
   }
 

@@ -1,3 +1,5 @@
+/* ************************ CAROUSEL STYLING ************************ */
+
 .Carousel {
   overflow: hidden;
   border-radius: 8px;
@@ -57,4 +59,12 @@
 .Carousel_bookDescription::-webkit-scrollbar {
   width: 0;
   height: 0;
+}
+
+/* ************************ GRID STYLING ************************ */
+
+.Grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
 }

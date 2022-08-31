@@ -3,7 +3,8 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import AddBook from '../components/AddBook';
 import BookCarousel from '../components/BookCarousel';
-import './Library.css'
+import BookGrid from '../components/BookGrid';
+import './Library.css';
 
 
 class Library extends React.Component {
@@ -17,9 +18,11 @@ class Library extends React.Component {
         description: '',
         status: false,
         _id: '',
+        __v: '',
       },
       showModal: false,
-      formModalMode: 'add'
+      formModalMode: 'add',
+      libraryView: 'carousel',
     }
   }
 
@@ -45,6 +48,7 @@ class Library extends React.Component {
       description: '',
       status: false,
       _id: '',
+      __v: '',
     }
     this.setState({ 
       showModal: true,
@@ -71,10 +75,12 @@ class Library extends React.Component {
     return (
       <>
         <main className='Main'>
-          {this.state.books.length ?  (
+          {this.state.books.length && this.state.libraryView === 'carousel' ? (
             <BookCarousel books={this.state.books} getBooks={this.getBooks} handleEdit={this.handleEdit}/>
+          ) : this.state.books.length && this.state.libraryView === 'grid' ? (
+            <BookGrid books={this.state.books} getBooks={this.getBooks} handleEdit={this.handleEdit}/>
           ) : (
-            <h3 className='text-white'>No Books Found :(</h3>
+            <h3 className='text-white'>{`No Books Found :(`}</h3>
           )}
         <Button variant="light" onClick={this.handleShow} className="mt-3 searchButton">
           Add Book

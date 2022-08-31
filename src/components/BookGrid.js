@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image'
 import axios from 'axios';
 import Container from 'react-bootstrap/esm/Container';
+import Card from 'react-bootstrap/Card';
 
 class BookGrid extends React.Component {
   constructor(props) {
@@ -35,29 +36,29 @@ class BookGrid extends React.Component {
 
   render() {
     return(
-      <Container>
+      <div className='Grid'>
         {this.props.books.map(book => {
           return (
-            <div key={book._id}>
-              <Image fluid src ='assets/cover-unavailable-image.png' width={320} height={200}/>
-              <div className=''>
-                <h3>{book.title}</h3>
-                <h4>{book.author}</h4>
+            <Card className='Grid_gridItem' key={book._id}>
+              <Card.Img src ='assets/cover-unavailable-image.png' width={320} height={200}/>
+              <Card.Body className='Grid_gridItem_content'>
+                <Card.Title>{book.title}</Card.Title>
+                <Card.Subtitle>{book.author}</Card.Subtitle>
                 <p className=''>{book.description}</p>
                 <p>{book.status ? 'You have read this book' : 'You have not read this book'}</p>
-                <div className=''>
+                <Card.Footer className=''>
                   <Button variant='secondary' className='' onClick={() => this.props.handleEdit(book)}>
                     <Image className='' src='assets/icons8_edit.svg' alt='delete' width={16} height={16}></Image>
                   </Button>
                   <Button variant='secondary' className='' onClick={() => this.handleDelete(book._id)}>
                     <Image className='' src='assets/icons8_trash.svg' alt='delete' width={16} height={16}></Image>
                   </Button>
-                </div>
-              </div>
-            </div>
+                </Card.Footer>
+              </Card.Body>
+            </Card>
           );
         })}
-      </Container>
+      </div>
     )
   }
 }
