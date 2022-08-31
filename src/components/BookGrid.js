@@ -1,10 +1,10 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image'
-import Carousel from 'react-bootstrap/Carousel';
 import axios from 'axios';
+import Container from 'react-bootstrap/esm/Container';
 
-class BookCarousel extends React.Component {
+class BookGrid extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -35,31 +35,31 @@ class BookCarousel extends React.Component {
 
   render() {
     return(
-      <Carousel activeIndex={this.state.index} onSelect={this.handleSelect} variant="dark" className="Carousel">
+      <Container>
         {this.props.books.map(book => {
           return (
-            <Carousel.Item key={book._id}>
+            <div key={book._id}>
               <Image fluid src ='assets/cover-unavailable-image.png' width={320} height={200}/>
-              <Carousel.Caption className='Carousel_caption'>
+              <div className=''>
                 <h3>{book.title}</h3>
                 <h4>{book.author}</h4>
-                <p className='Carousel_bookDescription'>{book.description}</p>
+                <p className=''>{book.description}</p>
                 <p>{book.status ? 'You have read this book' : 'You have not read this book'}</p>
-              </Carousel.Caption>
-              <div className='Carousel_buttonRow'>
-                <Button variant='secondary' className='Carousel_editButton' onClick={() => this.props.handleEdit(book)}>
-                  <Image className='Carousel_editButton_image' src='assets/icons8_edit.svg' alt='delete' width={16} height={16}></Image>
-                </Button>
-                <Button variant='secondary' className='Carousel_deleteButton' onClick={() => this.handleDelete(book._id)}>
-                  <Image className='Carousel_deleteButton_image' src='assets/icons8_trash.svg' alt='delete' width={16} height={16}></Image>
-                </Button>
+                <div className=''>
+                  <Button variant='secondary' className='' onClick={() => this.props.handleEdit(book)}>
+                    <Image className='' src='assets/icons8_edit.svg' alt='delete' width={16} height={16}></Image>
+                  </Button>
+                  <Button variant='secondary' className='' onClick={() => this.handleDelete(book._id)}>
+                    <Image className='' src='assets/icons8_trash.svg' alt='delete' width={16} height={16}></Image>
+                  </Button>
+                </div>
               </div>
-            </Carousel.Item>
+            </div>
           );
         })}
-      </Carousel>
+      </Container>
     )
   }
 }
 
-export default BookCarousel;
+export default BookGrid;

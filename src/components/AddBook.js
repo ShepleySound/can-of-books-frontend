@@ -11,18 +11,18 @@ class AddBook extends React.Component {
       title: this.props.title,
       author: this.props.author,
       description: this.props.description,
-      hasRead: this.props.hasRead,
-      id: this.props.id,
+      status: this.props.status,
+      id: this.props._id,
     }
   }
-
-  clearFormData = () => {
+  // Initialize function to be called on show. Syncs the opened modal with props, but still allows for further user interaction.
+  initFormData = () => {
     this.setState({
-      title: '',
-      author: '',
-      description: '',
-      hasRead: false,
-      id: '',
+      title: this.props.title,
+      author: this.props.author,
+      description: this.props.description,
+      status: this.props.status,
+      id: this.props._id,
     })
   }
 
@@ -34,10 +34,9 @@ class AddBook extends React.Component {
         'title': this.state.title,
         'author': this.state.author,
         'description': this.state.description,
-        'status': this.state.hasRead,
+        'status': this.state.status,
       });
       this.props.getBooks();
-      this.clearFormData();
       this.props.handleClose();
     } catch (error) {
       console.error("Error in handleSubmit", error)
@@ -60,10 +59,16 @@ class AddBook extends React.Component {
   }
 
   render() {
+    let modalTitle = '';
+    if (this.props.formModalMode === 'add') {
+      modalTitle = 'Add Book to Library'
+    } else if (this.props.formModalMode === 'edit') {
+      modalTitle = 'Edit Book'
+    }
     return(
-      <Modal show={this.props.show} onHide={this.props.handleClose}>
+      <Modal show={this.props.show} onHide={this.props.handleClose} onShow={this.initFormData}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Book to Library</Modal.Title>
+          <Modal.Title>{modalTitle}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={this.handleSubmit}>
@@ -77,10 +82,10 @@ class AddBook extends React.Component {
             </Form.Group>
             <Form.Group className='mb-3' controlId="BookSearchForm.description">
               <Form.Label>Description</Form.Label>
-              <Form.Control as="textarea" rows={3} name="description" checked={this.state.hasRead} onChange={this.handleInputChange} placeholder="Enter Description..."></Form.Control>
+              <Form.Control as="textarea" rows={3} name="description" value={this.state.description} onChange={this.handleInputChange} placeholder="Enter Description..."></Form.Control>
             </Form.Group>
-            <Form.Group className='mb-3' controlId="BookSearchForm.hasRead">
-              <Form.Check type="switch" id="read-switch" label="Have you read this book?" name="hasRead" value={this.state.hasRead} onChange={this.handleInputChange}/>
+            <Form.Group className='mb-3' controlId="BookSearchForm.status">
+              <Form.Check type="switch" id="read-switch" label="Have you read this book?" checked={this.state.status} name="status" onChange={this.handleInputChange}/>
             </Form.Group>
             <Button className="mt-3" variant="dark" type="submit" onClick={this.handleSubmit}>
               Add Book
