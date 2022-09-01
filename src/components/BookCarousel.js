@@ -32,15 +32,13 @@ class BookCarousel extends React.Component {
       index: selectedIndex
     })
   }
+
   render() {
     return(
-      <Carousel activeIndex={this.state.index} onSelect={this.handleSelect} variant="dark" className="Carousel">
+      <Carousel interval={null} activeIndex={this.state.index} onSelect={this.handleSelect} variant="dark" className="Carousel">
         {this.props.books.map(book => {
           return (
             <Carousel.Item key={book._id}>
-              <Button className='Carousel_deleteButton' variant="light" onClick={() => this.handleDelete(book._id)}>
-                <Image className='Carousel_deleteButton_image' src='assets/icons8_trash.svg' alt='delete' width={18} height={18}></Image>
-              </Button>
               <Image fluid src ='assets/cover-unavailable-image.png' width={320} height={200}/>
               <Carousel.Caption className='Carousel_caption'>
                 <h3>{book.title}</h3>
@@ -48,6 +46,14 @@ class BookCarousel extends React.Component {
                 <p className='Carousel_bookDescription'>{book.description}</p>
                 <p>{book.status ? 'You have read this book' : 'You have not read this book'}</p>
               </Carousel.Caption>
+              <div className='Carousel_buttonRow'>
+                <Button variant='secondary' className='Carousel_editButton' onClick={() => this.props.handleEdit(book)}>
+                  <Image className='Carousel_editButton_image' src='assets/icons8_edit.svg' alt='delete' width={16} height={16}></Image>
+                </Button>
+                <Button variant='secondary' className='Carousel_deleteButton' onClick={() => this.handleDelete(book._id)}>
+                  <Image className='Carousel_deleteButton_image' src='assets/icons8_trash.svg' alt='delete' width={16} height={16}></Image>
+                </Button>
+              </div>
             </Carousel.Item>
           );
         })}

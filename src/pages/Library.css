@@ -1,8 +1,16 @@
+/* ************************ CAROUSEL STYLING ************************ */
+
 .Carousel {
   overflow: hidden;
   border-radius: 8px;
   width: 320px;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  /* position: relative; */
+}
+
+.carousel-indicators {
+  margin-bottom: 58px !important;
 }
 
 .carousel-caption {
@@ -10,25 +18,37 @@
   padding: 24px !important;
   background-color: #121212cc;
   color: white !important;
+  bottom: 84px !important;
 }
 
 .carousel-control-next,
 .carousel-control-prev {
-  height: 25%;
+  height: 510px;
+  background-color: #12121212 !important;
 }
 
-.Carousel_deleteButton {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  background-color: transparent !important;
-  border: none !important;
-  width: 48px;
-  height: 48px;
+.Carousel_buttonRow {
+  background-color: #242424;
+  padding: 8px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-end;
 }
+
+.Carousel_deleteButton,
+.Carousel_editButton {
+  border-radius: 100px !important;
+  padding: 0 !important;
+  width: 40px;
+  height: 40px;
+  box-sizing: content-box;
+  margin-right: 16px;
+}
+
+/* 
+.Carousel_deleteButton {}
+
+.Carousel_editButton {} */
 
 .Carousel_bookDescription {
   max-height: 10em;
@@ -39,4 +59,12 @@
 .Carousel_bookDescription::-webkit-scrollbar {
   width: 0;
   height: 0;
+}
+
+/* ************************ GRID STYLING ************************ */
+
+.Grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
 }
