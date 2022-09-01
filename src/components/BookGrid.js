@@ -2,7 +2,6 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image'
 import axios from 'axios';
-import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/Card';
 
 class BookGrid extends React.Component {
